@@ -1,6 +1,7 @@
 import random
 from pandas.core.frame import DataFrame
-from transformers_political_debate.src.transformers.models.longformer import LongformerPolitics, LongformerTokenizer
+from modeling_longformer import LongformerPolitics
+from transformers import LongformerTokenizer
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, precision_recall_fscore_support
 import numpy as np
@@ -320,7 +321,7 @@ runtime = now.strftime("%d/%m/%Y_%H:%M:%S")
 
 print("Starting at: ", runtime)
 
-fallacy_df = pd.read_csv('merged.csv')
+fallacy_df = pd.read_csv('./dataset/merged.csv')
 
 # Identifying fallacies to map them into keys
 fallacies = fallacy_df['Fallacy'].unique()
